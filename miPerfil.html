@@ -1,0 +1,88 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Mi Perfil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario -->
+        <form id="registroForm" data-parsley-validate>
+          <div class="row mb-1">
+            <div class="form-group">
+              <label for="tipoDoc" class="col-form-label">Tipo de Documento</label>
+              <select class="form-control" id="tipoDoc" required
+                      data-parsley-pattern="^(CC|TI|EX|PAS)$"
+                      data-parsley-error-message="Debe introducir CC, TI, EX o PAS"
+                      data-parsley-trigger="keyup">
+                <option value="">Seleccione...</option>
+                <option>CC</option>
+                <option>TI</option>
+                <option>EX</option>
+                <option>PAS</option>
+              </select>
+            </div>
+            <div class="mb-1">
+              <label for="nroDoc" class="col-form-label">Nro. Documento</label>
+              <input type="text" class="form-control" id="nroDoc" required 
+                     data-parsley-pattern="^[a-zA-Z0-9]+$" 
+                     data-parsley-error-message="Solo se permiten letras y números (sin caracteres especiales)" 
+                     data-parsley-trigger="keyup">
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="nombres" class="col-form-label">Nombres:</label>
+            <input type="text" class="form-control" id="nombres" required 
+                   data-parsley-pattern="^[a-zA-Z]+$" 
+                   data-parsley-error-message="Solo se permiten letras" 
+                   data-parsley-trigger="keyup">
+          </div>
+          <div class="mb-1">
+            <label for="apellidos" class="col-form-label">Apellidos:</label>
+            <input type="text" class="form-control" id="apellidos" required 
+                   data-parsley-pattern="^[a-zA-Z]+$" 
+                   data-parsley-error-message="Solo se permiten letras" 
+                   data-parsley-trigger="keyup">
+          </div>
+          <div class="mb-3">
+            <label for="fechaNacimiento" class="col-form-label">Fecha de nacimiento:</label>
+            <input type="date" class="form-control" id="fechaNacimiento" required>
+          </div>
+          <div class="mb-1">
+            <label for="correo" class="col-form-label">Correo:</label>
+            <input type="email" class="form-control" id="correo" required 
+                   data-parsley-type="email" 
+                   data-parsley-error-message="Debe ser un correo válido" 
+                   data-parsley-trigger="keyup">
+          </div>
+          <div class="mb-1">
+            <label for="clave" class="col-form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="clave" required 
+                   data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{3,})(?=.*[\W_]).{8,}$" 
+                   data-parsley-error-message="Debe contener una longitud de 8: al menos 1 mayúscula, 1 minúscula, 3 números y 1 carácter especial"
+                   data-parsley-trigger="keyup">
+          </div>
+          <div class="mb-1">
+            <label for="claveC" class="col-form-label">Confirmar Contraseña:</label>
+            <input type="password" class="form-control" id="claveC" required 
+                   data-parsley-equalto="#clave" 
+                   data-parsley-error-message="Las contraseñas no coinciden"
+                   data-parsley-trigger="keyup">
+          </div>
+          <!-- Botón Guardar -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary"> Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="distMenu.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.3/parsley.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
